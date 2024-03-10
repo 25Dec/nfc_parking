@@ -1,0 +1,29 @@
+{
+	"project_info": {
+		"project_number": "293263881732",
+		"project_id": "nfc-parking-91f50",
+		"storage_bucket": "nfc-parking-91f50.appspot.com"
+	},
+	"client": [
+		{
+			"client_info": {
+				"mobilesdk_app_id": "1:293263881732:android:23cba2a9022f906d542751",
+				"android_client_info": {
+					"package_name": "com.example.nfc_parking"
+				}
+			},
+			"oauth_client": [],
+			"api_key": [
+				{
+					"current_key": "AIzaSyBRbu-wMaRo5GvJIGPcR2SzTNxsJj-EhgI"
+				}
+			],
+			"services": {
+				"appinvite_service": {
+					"other_platform_oauth_client": []
+				}
+			}
+		}
+	],
+	"configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get_it/get_it.dart';
+import 'package:nfc_manager/nfc_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../features/auth/data/datasources/auth_local_data_source.dart';
+import '../../features/auth/data/datasources/auth_remote_data_source.dart';
+import '../../features/auth/data/repositories/auth_repo_impl.dart';
+import '../../features/auth/domain/repositories/auth_repo.dart';
+import '../../features/auth/domain/usecases/get_user_data.dart';
+import '../../features/auth/domain/usecases/sign_in_with_email_password.dart';
+import '../../features/auth/domain/usecases/sign_out.dart';
+import '../../features/auth/presentation/bloc/auth_bloc.dart';
+import '../../features/nfc_cards/data/datasources/nfc_cards_remote_data_source.dart';
+import '../../features/nfc_cards/data/repositories/nfc_cards_repo_impl.dart';
+import '../../features/nfc_cards/domain/repositories/nfc_cards_repo.dart';
+import '../../features/nfc_cards/domain/usecases/add_new_nfc_card.dart';
+import '../../features/nfc_cards/domain/usecases/change_current_nfc_card_status.dart';
+import '../../features/nfc_cards/domain/usecases/check_if_nfc_available.dart';
+import '../../features/nfc_cards/domain/usecases/get_all_nfc_cards.dart';
+import '../../features/nfc_cards/domain/usecases/get_available_nfc_cards.dart';
+import '../../features/nfc_cards/domain/usecases/get_card_information.dart';
+import '../../features/nfc_cards/domain/usecases/get_in_use_nfc_cards.dart';
+import '../../features/nfc_cards/domain/usecases/get_lost_nfc_cards.dart';
+import '../../features/nfc_cards/presentation/bloc/nfc_cards_bloc.dart';
+import '../../features/staff/data/datasources/staff_remote_data_source.dart';
+import '../../features/staff/data/repositories/staff_repo_impl.dart';
+import '../../features/staff/domain/repositories/staff_repo.dart';
+import '../../features/staff/domain/usecases/delete_staff_account.dart';
+import '../../features/staff/domain/usecases/get_all_staff.dart';
+import '../../features/staff/domain/usecases/sign_up_staff_account.dart';
+import '../../features/staff/presentation/bloc/staff_bloc.dart';
+
+part 'injection_container.main.dart';
