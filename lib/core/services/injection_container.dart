@@ -2,6 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:nfc_manager/nfc_manager.dart';
+import 'package:nfc_parking/features/parking_history/data/datasources/parking_history_remote_data_source.dart';
+import 'package:nfc_parking/features/parking_history/data/repositories/parking_history_repo_impl.dart';
+import 'package:nfc_parking/features/parking_history/domain/repositories/parking_history_repo.dart';
+import 'package:nfc_parking/features/parking_history/domain/usecases/initialize_camera.dart';
+import 'package:nfc_parking/features/parking_history/presentation/bloc/parking_history_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../features/auth/data/datasources/auth_local_data_source.dart';

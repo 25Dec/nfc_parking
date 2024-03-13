@@ -8,7 +8,7 @@ import '../../features/parking_history/presentation/pages/sub_pages/detail_info_
 import '../../features/settings/presentation/pages/settings_page.dart';
 import '../../features/staff/presentation/pages/sign_up_staff_account_page.dart';
 import '../../features/staff/presentation/pages/staff_page.dart';
-import '../common/pages/scan_license_plate_page.dart';
+import '../../features/parking_history/presentation/pages/sub_pages/scan_license_plate_page.dart';
 import '../common/pages/scan_nfc_page.dart';
 import '../common/pages/shell_page.dart';
 import 'app_route_constants.dart';

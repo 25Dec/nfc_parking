@@ -1,3 +1,5 @@
+import 'package:camera/camera.dart';
+
 import '../../../../core/utils/typedefs.dart';
 import '../entities/parking_ticket_entity.dart';
 
@@ -8,7 +10,7 @@ abstract class ParkingHistoryRepo {
   ResultFuture<void> checkout({
     required List<Map<String, dynamic>> data,
   });
-  ResultFuture<List<ParkingTicketEntity>> getAllParkingHistory();
+  ResultFuture<CameraController> initializeCamera();
   ResultFuture<List<ParkingTicketEntity>> getRecentlyParkingHistory();
   ResultFuture<List<ParkingTicketEntity>> getOldestParkingHistory();
 }

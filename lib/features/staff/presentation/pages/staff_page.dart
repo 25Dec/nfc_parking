@@ -26,7 +26,9 @@ class _StaffPageState extends State<StaffPage> {
   }
 
   Future<void> getAllStaff() async {
-    BlocProvider.of<StaffBloc>(context).add(GetAllStaffEvent());
+    BlocProvider.of<StaffBloc>(context).add(
+      GetAllStaffEvent(),
+    );
   }
 
   @override

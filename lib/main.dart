@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'core/utils/screen_params.dart';
 
 import 'core/res/app_theme.dart';
 import 'core/routes/app_route_config.dart';
@@ -9,6 +12,7 @@ import 'core/services/firebase_options.dart';
 import 'core/services/injection_container.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/nfc_cards/presentation/bloc/nfc_cards_bloc.dart';
+import 'features/parking_history/presentation/bloc/parking_history_bloc.dart';
 import 'features/staff/presentation/bloc/staff_bloc.dart';
 
 void main() async {
@@ -29,6 +33,7 @@ void main() async {
         BlocProvider(create: (context) => sl<AuthBloc>()),
         BlocProvider(create: (context) => sl<NfcCardsBloc>()),
         BlocProvider(create: (context) => sl<StaffBloc>()),
+        BlocProvider(create: (context) => sl<ParkingHistoryBloc>()),
       ],
       child: const MyApp(),
     ),
@@ -53,6 +58,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenParams.screenSize = MediaQuery.sizeOf(context);
+
     return MaterialApp.router(
       title: "NFC Parking",
       debugShowCheckedModeBanner: false,

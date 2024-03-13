@@ -146,5 +146,21 @@ class InjectionContainer {
     );
   }
 
-  static Future<void> _initParkingHistory() async {}
+  static Future<void> _initParkingHistory() async {
+    sl.registerFactory(
+      () => ParkingHistoryBloc(initializeCamera: sl()),
+    );
+
+    sl.registerLazySingleton(
+      () => InitializeCamera(sl()),
+    );
+
+    sl.registerLazySingleton<ParkingHistoryRepo>(
+      () => ParkingHistoryRepoImpl(sl()),
+    );
+
+    sl.registerLazySingleton<ParkingHistoryRemoteDataSource>(
+      () => ParkingHistoryRemoteDataSourceImpl(sl(), sl()),
+    );
+  }
 }

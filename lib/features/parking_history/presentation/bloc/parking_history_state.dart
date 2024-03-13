@@ -4,9 +4,9 @@ abstract class ParkingHistoryState {}
 
 class ParkingHistoryInitial extends ParkingHistoryState {}
 
-class DoneGettingAllParkingHistoryState extends ParkingHistoryState {
-  final List<ParkingTicketEntity> vehicles;
-  DoneGettingAllParkingHistoryState({required this.vehicles});
+class InitializeCameraSuccessfullyState extends ParkingHistoryState {
+  final CameraController cameraController;
+  InitializeCameraSuccessfullyState({required this.cameraController});
 }
 
 class DoneGettingRecentlyParkingHistoryState extends ParkingHistoryState {

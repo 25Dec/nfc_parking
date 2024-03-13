@@ -1,6 +1,9 @@
+import 'package:camera/camera.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nfc_parking/features/parking_history/presentation/widgets/flash_light_button.dart';
 
 import '../../../features/nfc_cards/presentation/bloc/nfc_cards_bloc.dart';
 import '../../res/app_colors.dart';
@@ -13,6 +16,7 @@ class CustomTopAppBar extends StatefulWidget implements PreferredSizeWidget {
   final int totalNumberOfCards;
   final int totalNumberOfVehicles;
   final int totalNumberOfStaff;
+  final CameraController? cameraController;
 
   const CustomTopAppBar({
     super.key,
@@ -21,6 +25,7 @@ class CustomTopAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.totalNumberOfCards = 0,
     this.totalNumberOfVehicles = 0,
     this.totalNumberOfStaff = 0,
+    this.cameraController,
   });
 
   @override
@@ -46,8 +51,8 @@ class _CustomTopAppBarState extends State<CustomTopAppBar> {
       CheckIfNfcAvailableEvent(),
     );
 
-    if (widget.routeName == AppPage.parkingHistoryShell.toName) {
-      GoRouter.of(context).pushNamed(AppPage.scanLicensePlate.toName);
+    if (widget.routeName == AppPage.staff.toName) {
+      GoRouter.of(context).pushNamed(AppPage.signUpStaffAccount.toName);
     }
   }
 
@@ -72,6 +77,11 @@ class _CustomTopAppBarState extends State<CustomTopAppBar> {
         "Create Staff Account",
         style: textStyle,
       );
+    } else if (widget.routeName == AppPage.scanLicensePlate.toName) {
+      return Text(
+        "Scan License Plate",
+        style: textStyle.copyWith(color: AppColors.white2),
+      );
     }
     return null;
   }
@@ -94,14 +104,27 @@ class _CustomTopAppBarState extends State<CustomTopAppBar> {
       listener: (context, nfcCardsState) async {},
       child: AppBar(
         title: title(),
-        backgroundColor: AppColors.white2,
+        centerTitle: widget.routeName == AppPage.scanLicensePlate.toName ||
+            widget.routeName == AppPage.signUpStaffAccount.toName,
+        iconTheme: widget.routeName == AppPage.scanLicensePlate.toName
+            ? const IconThemeData(color: AppColors.white2)
+            : null,
+        backgroundColor: widget.routeName == AppPage.scanLicensePlate.toName
+            ? Colors.transparent
+            : AppColors.white2,
         actions: [
-          if (widget.routeName != AppPage.signUpStaffAccount.toName)
+          if (widget.routeName != AppPage.signUpStaffAccount.toName &&
+              widget.routeName != AppPage.scanLicensePlate.toName)
             CustomIconButton(
               icon: Icons.add,
               onPressed: checkIfNfcAvailable,
             ),
-          const SizedBox(width: 16)
+          if (widget.routeName == AppPage.scanLicensePlate.toName)
+            FlashLightButton(
+              cameraController: widget.cameraController!,
+            ),
+          if (widget.routeName != AppPage.scanLicensePlate.toName)
+            const SizedBox(width: 16)
         ],
         bottom: widget.routeName == AppPage.nfcCardsShell.toName ||
                 widget.routeName == AppPage.parkingHistoryShell.toName
