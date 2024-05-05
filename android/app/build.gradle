@@ -82,4 +82,5 @@ configurations.all {
 dependencies {
     implementation 'com.google.mlkit:object-detection:17.0.1'
     implementation 'com.google.mlkit:object-detection-custom:17.0.1'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
 }

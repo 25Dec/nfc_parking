@@ -1,10 +1,7 @@
-import 'dart:ui';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'core/utils/screen_params.dart';
 
 import 'core/res/app_theme.dart';
 import 'core/routes/app_route_config.dart';
@@ -58,8 +55,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenParams.screenSize = MediaQuery.sizeOf(context);
-
     return MaterialApp.router(
       title: "NFC Parking",
       debugShowCheckedModeBanner: false,
